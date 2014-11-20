@@ -95,14 +95,15 @@
 		}
 
 		classSelectorInfo = getClassSelector(el);
-		selector.unshift(classSelectorInfo.selector);
-		if (selector.unique) {
-			return selector;
-		}
-
-		if (!classSelectorInfo.selector) {
+		if (classSelectorInfo.selector) {
+			selector.unshift(classSelectorInfo.selector);
+			if (selector.unique) {
+				return selector;
+			}
+		} else {
 			selector.unshift(':eq(' + $(el).index() + ')');
 		}
+
 		return getSelectorRecursive(el.parentNode, selector);
 	}
 	/**
