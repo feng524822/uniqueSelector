@@ -95,11 +95,9 @@
 		}
 
 		classSelectorInfo = getClassSelector(el);
-		if (classSelectorInfo.selector) {
+		if (classSelectorInfo.selector && classSelectorInfo.unique) {
 			selector.unshift(classSelectorInfo.selector);
-			if (selector.unique) {
-				return selector;
-			}
+			return selector;
 		} else {
 			selector.unshift(':eq(' + $(el).index() + ')');
 		}
