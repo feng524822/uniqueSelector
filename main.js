@@ -45,9 +45,9 @@
 			selector,
 			selectorCount,
 			least = 0,
-			returnValue = {};
+			returnValue = {},
 			className = el.className,
-			tagName = getEleTagName(el),
+			tagName = getEleTagName(el);
 
 		returnValue.selector = '';
 		if (className && tagName) {
@@ -110,7 +110,7 @@
 	 * @return {String}             [返回选择器]
 	 */
 	function getSelector(el) {
-		selector = getSelectorRecursive($(el)[0], []);
+		var selector = getSelectorRecursive($(el)[0], []);
 		return selector.join(' > ');
 	}
 
